@@ -76,8 +76,8 @@ model=CNNClassifier()
 if t.cuda.is_available():
   device=t.device("cuda")
   model.to(device)
-print("Name: DEVESH S")
-print("Reg.no: 212223230041")
+print("\nName: Gokkul M")
+print("Register No: 212223240039")
 summary(model,input_size=(1,28,28))
 criterion=nn.CrossEntropyLoss()
 optimizer=optim.Adam(model.parameters(),lr=0.001)
@@ -95,9 +95,8 @@ def train_model(model,train_loader,num_epochs):
       optimizer.step()
       running_loss+=loss.item()
     print(f"Epoch [{epoch+1}/{num_epochs}], Loss: {running_loss/len(train_loader):.4f}")
-print("Name: DEVESH S")
-print("Reg.no: 212223230041")
-
+print("\nName: Gokkul M")
+print("Register No: 212223240039")
 train_model(model,train_loader,num_epochs=10)
 
 def test_model(model, test_loader):
@@ -119,22 +118,21 @@ def test_model(model, test_loader):
       all_labels.extend(labels.cpu().numpy())
 
   accuracy = correct/total
-  print("Name: DEVESH S")
-  print("Reg.no: 212223230041") 
+print("\nName: Gokkul M")
+print("Register No: 212223240039")
   print(f"Test Accuracy: {accuracy:.4f}")
 
   cm = confusion_matrix(all_labels, all_preds)
   plt.figure(figsize=(8, 6))
-  print("Name: DEVESH S")
-  print("Reg.no: 212223230041")
+print("\nName: Gokkul M")
+print("Register No: 212223240039")
   sns.heatmap(cm, annot=True, fmt="d", cmap="Blues", xticklabels=test_dataset.classes, yticklabels=test_dataset.classes)
   plt.xlabel("Predicted")
   plt.ylabel("Actual")
   plt.title("Confusion Matrix")
   plt.show()
-
-  print("Name: DEVESH S")
-  print("Reg.no: 212223230041")
+print("\nName: Gokkul M")
+print("Register No: 212223240039")
   print("Classification Report:")
   print(classification_report(all_labels, all_preds, target_names=[str(i) for i in range(10)]))
 test_model(model, test_loader)
@@ -149,8 +147,8 @@ def predict_image(model,image_index,dataset):
     output=model(image.unsqueeze(0))
     _,predicted=t.max(output,1)
   class_names=[str(i) for i in range(10)]
-  print("Name: DEVESH S")
-  print("Reg.no: 212223230041")
+print("\nName: Gokkul M")
+print("Register No: 212223240039")
   plt.imshow(image.cpu().squeeze(0),cmap='gray')
   plt.title(f"Actual: {class_names[label]}\nPredicted: {class_names[predicted.item()]}")
   plt.axis("off")
